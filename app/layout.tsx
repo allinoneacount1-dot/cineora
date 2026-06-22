@@ -4,6 +4,8 @@ import "./globals.css";
 import { AppWalletProvider } from "@/components/wallet/AppWalletProvider";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { Navigation } from "@/components/sections/Navigation";
+import { CustomCursor } from "@/components/CustomCursor";
+import { PageReveal } from "@/components/PageReveal";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -65,10 +67,12 @@ export default function RootLayout({
           Skip to main content
         </a>
         <ScrollProgress />
+        <PageReveal />
         <AppWalletProvider>
           <Navigation />
           {children}
         </AppWalletProvider>
+        <CustomCursor />
       </body>
     </html>
   );

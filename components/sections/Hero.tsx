@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { StaggerHeadline } from "@/components/ui/StaggerHeadline";
 import { ArrowRight } from "@/components/icons/ArrowRight";
+import { MagneticButton } from "@/components/ui/MagneticButton";
 
 // Wallet component is client-only (uses browser APIs). Dynamic import keeps SSR clean.
 const ConnectWallet = dynamic(
@@ -60,14 +61,17 @@ export function Hero() {
 
           {/* CTAs */}
           <div className="mt-12 flex items-center gap-5 flex-wrap">
-            <Link
-              href="/agents"
-              className="btn-cineora group"
-              aria-label="Enter the civilization"
-            >
-              <span>Enter the civilization</span>
-              <ArrowRight size={14} className="btn-cineora__arrow" />
-            </Link>
+            <MagneticButton strength={0.4}>
+              <Link
+                href="/agents"
+                className="btn-cineora group"
+                aria-label="Enter the civilization"
+                data-cursor-hover
+              >
+                <span>Enter the civilization</span>
+                <ArrowRight size={14} className="btn-cineora__arrow" />
+              </Link>
+            </MagneticButton>
 
             <ConnectWallet />
           </div>
