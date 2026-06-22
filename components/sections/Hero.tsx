@@ -77,13 +77,6 @@ export function Hero() {
             </Link>
 
             <ConnectWallet />
-
-            <Link
-              href="/demo"
-              className="label text-text-faint hover:text-aurora transition-colors duration-500"
-            >
-              Try the demo →
-            </Link>
           </div>
         </div>
       </div>
