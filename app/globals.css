@@ -2,26 +2,225 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===================================================================
+   CINEORA — Aurora Genesis
+   Design tokens & base layer
+   =================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0a0f2c;
+  --bg-elevated: #0f1438;
+  --bg-deeper: #060924;
+  --text: #f6f8ff;
+  --text-muted: rgba(246, 248, 255, 0.6);
+  --text-faint: rgba(246, 248, 255, 0.35);
+  --accent-aurora: #00f5ff;
+  --accent-gold: #ffd700;
+  --accent-purple: #9b4dff;
+  --accent-ember: #ff4d00;
+  --border: rgba(246, 248, 255, 0.08);
+  --border-strong: rgba(246, 248, 255, 0.16);
+
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+::selection {
+  background: rgba(0, 245, 255, 0.25);
+  color: #ffffff;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Typography primitives */
+.font-display {
+  font-family: var(--font-tenor), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.label {
+  font-family: var(--font-jet), ui-monospace, monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Subtle film grain layer applied site-wide (non-WebGL) */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Vignette for cinematic feel */
+.vignette::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(6, 9, 36, 0.6) 100%
+  );
+}
+
+/* CTA button base — gold hairline + ember on hover */
+.btn-cineora {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  border-radius: 0; /* intentional — anti-uniform-radius */
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+
+.btn-cineora::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 0, 0.08),
+    rgba(255, 77, 0, 0.08)
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.btn-cineora:hover {
+  border-color: rgba(255, 215, 0, 0.5);
+  color: #ffffff;
+}
+
+.btn-cineora:hover::before {
+  opacity: 1;
+}
+
+.btn-cineora:hover .btn-cineora__arrow {
+  transform: translateX(4px);
+  color: var(--accent-ember);
+}
+
+.btn-cineora__arrow {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.5s ease;
+}
+
+/* Ghost button — for nav */
+.btn-ghost {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+.btn-ghost:hover {
+  color: var(--accent-purple);
+  border-color: rgba(155, 77, 255, 0.35);
+}
+
+/* Hairline divider */
+.hairline {
+  height: 1px;
+  background: var(--border);
+  width: 100%;
+}
+
+/* Shell container */
+.shell {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 56px);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Hero copy responsive sizing helper */
+.headline-hero {
+  font-size: clamp(48px, 8vw, 128px);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+}
+
+.headline-section {
+  font-size: clamp(32px, 5vw, 72px);
+  line-height: 1.02;
+  letter-spacing: 0.005em;
 }
