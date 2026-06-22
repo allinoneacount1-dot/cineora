@@ -10,7 +10,9 @@
 :root {
   --bg: #0a0f2c;
   --bg-elevated: #0f1438;
+  --bg-elevated-hover: #101642;
   --bg-deeper: #060924;
+  --bg-overlay: rgba(10, 15, 44, 0.7);
   --text: #f6f8ff;
   --text-muted: rgba(246, 248, 255, 0.6);
   --text-faint: rgba(246, 248, 255, 0.35);
@@ -19,8 +21,11 @@
   --accent-purple: #9b4dff;
   --accent-ember: #ff4d00;
   --accent-teal: #00b4a8;
+  --danger: #ff6b4a;
   --border: rgba(246, 248, 255, 0.08);
   --border-strong: rgba(246, 248, 255, 0.16);
+  --shadow-modal: 0 24px 80px rgba(0, 0, 0, 0.7);
+  --shadow-overlay: 0 8px 32px rgba(0, 0, 0, 0.6);
 
   color-scheme: dark;
 }
@@ -277,6 +282,11 @@ a:focus-visible,
 input:focus-visible {
   outline: 2px solid var(--accent-aurora);
   outline-offset: 3px;
+}
+
+/* Aurora glow utility — used by ScrollProgress bar */
+.aurora-glow {
+  box-shadow: 0 0 8px rgba(0, 245, 255, 0.4);
 }
 
 /* Prose styling for legal/whitepaper pages */

@@ -97,8 +97,10 @@ export default function TermsPage() {
 
           <Section title="8. Contact">
             <p>
-              Questions? Reach the project at{" "}
-              .
+              Questions about these Terms will be addressed through the
+              project&apos;s official channels once they are publicly listed.
+              Until then, the Site&apos;s repository issue tracker is the
+              fastest way to reach the maintainers.
             </p>
           </Section>
         </div>

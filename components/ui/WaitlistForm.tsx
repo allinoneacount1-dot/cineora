@@ -76,7 +76,7 @@ export function WaitlistForm() {
         placeholder="your@protocol.email"
         aria-invalid={status === "error"}
         aria-describedby={status === "error" ? "waitlist-error" : undefined}
-        className="flex-1 bg-transparent border border-rule-strong px-4 py-3.5 text-text text-[14px] placeholder:text-text-faint focus:outline-none focus:border-aurora transition-colors duration-500 disabled:opacity-50"
+        className="flex-1 bg-transparent border border-rule-strong px-4 py-3.5 text-text text-[14px] placeholder:text-text-faint focus:border-aurora transition-colors duration-500 disabled:opacity-50"
       />
       <button
         type="submit"
@@ -92,7 +92,7 @@ export function WaitlistForm() {
         <p
           id="waitlist-error"
           role="alert"
-          className="sm:col-span-2 mt-1 text-[#ff6b4a] text-[12px]"
+          className="sm:col-span-2 mt-1 text-danger text-[12px]"
         >
           {errorMsg}
         </p>

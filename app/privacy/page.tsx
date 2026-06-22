@@ -102,8 +102,8 @@ export default function PrivacyPage() {
           <Section title="5. Your rights">
             <p>
               You can request export or deletion of any data we hold about you
-              by emailing{" "}
-              . We respond within 30 days.
+              through the project&apos;s official channels once they are
+              publicly listed. We respond within 30 days.
             </p>
           </Section>
 

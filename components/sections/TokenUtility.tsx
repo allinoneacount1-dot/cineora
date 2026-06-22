@@ -133,7 +133,7 @@ function UtilityBlock({
 
   return (
     <article
-      className={`group relative bg-bg-elevated ${padding} ${minHeight} ${radius} flex flex-col justify-between transition-colors duration-700 hover:bg-[#101642]`}
+      className={`group relative bg-bg-elevated ${padding} ${minHeight} ${radius} flex flex-col justify-between transition-colors duration-700 hover:bg-elevated-hover`}
     >
       <div className="flex items-start justify-between mb-10">
         <div className="text-text-muted transition-colors duration-500 group-hover:text-gold">
@@ -153,8 +153,7 @@ function UtilityBlock({
 
       {/* hover accent — purple hairline from bottom, very subtle */}
       <span
-        className="absolute inset-x-10 bottom-7 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-        style={{ background: "rgba(155, 77, 255, 0.6)" }}
+        className="absolute inset-x-10 bottom-7 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-purple/60"
       />
     </article>
   );

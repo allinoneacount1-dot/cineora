@@ -31,13 +31,10 @@ export function ScrollProgress() {
       aria-hidden="true"
     >
       <div
-        className="h-full origin-left transition-transform duration-150 ease-out"
+        className="h-full origin-left transition-transform duration-150 ease-out bg-[linear-gradient(90deg,theme(colors.gold),theme(colors.aurora),theme(colors.purple))] aurora-glow"
         style={{
           width: "100%",
           transform: `scaleX(${progress / 100})`,
-          background:
-            "linear-gradient(90deg, #FFD700 0%, #00F5FF 50%, #9B4DFF 100%)",
-          boxShadow: "0 0 8px rgba(0, 245, 255, 0.4)",
         }}
       />
     </div>

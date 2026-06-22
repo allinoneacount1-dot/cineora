@@ -31,18 +31,11 @@ export function Hero() {
 
       {/* Soft top vignette to make nav legible */}
       <div
-        className="absolute inset-x-0 top-0 h-[180px] z-[1] pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(6,9,36,0.85), transparent)",
-        }}
+        className="absolute inset-x-0 top-0 h-[180px] z-[1] pointer-events-none bg-gradient-to-b from-bg-deeper/85 to-transparent"
       />
       {/* Bottom fade for content edge */}
       <div
-        className="absolute inset-x-0 bottom-0 h-[260px] z-[1] pointer-events-none"
-        style={{
-          background: "linear-gradient(to top, rgba(6,9,36,0.9), transparent)",
-        }}
+        className="absolute inset-x-0 bottom-0 h-[260px] z-[1] pointer-events-none bg-gradient-to-t from-bg-deeper/90 to-transparent"
       />
 
       {/* Content */}

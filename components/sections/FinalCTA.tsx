@@ -12,11 +12,7 @@ export function FinalCTA() {
     >
       {/* Faint aurora glow at top */}
       <div
-        className="absolute inset-x-0 top-0 h-[400px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 0%, rgba(0,245,255,0.10), transparent 70%)",
-        }}
+        className="absolute inset-x-0 top-0 h-[400px] pointer-events-none bg-[radial-gradient(ellipse_at_50%_0%,theme(colors.aurora/10),transparent_70%)]"
       />
 
       <div className="shell relative">
@@ -43,7 +39,7 @@ export function FinalCTA() {
 
               <a
                 href="/whitepaper"
-                className="label text-text-muted hover:text-text transition-colors"
+                className="label text-text-muted hover:text-text transition-colors duration-500"
               >
                 Read the genesis brief
               </a>

@@ -7,7 +7,7 @@
  * Dropdown: Explorer link, Copy address, Switch chain, Disconnect.
  */
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useAccount, useConnect, useDisconnect, useBalance, useChainId } from "wagmi";
 import { mainnet, base } from "wagmi/chains";
 
@@ -116,7 +116,7 @@ export function ConnectWallet() {
     <div className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-3 px-4 py-2 border border-rule-strong bg-transparent hover:bg-[rgba(0,245,255,0.04)] transition-colors duration-500 ease-cineora"
+        className="flex items-center gap-3 px-4 py-2 border border-rule-strong bg-transparent hover:bg-aurora/[0.04] transition-colors duration-500 ease-cineora"
         aria-expanded={open}
         aria-haspopup="menu"
       >
@@ -139,7 +139,7 @@ export function ConnectWallet() {
             aria-hidden="true"
           />
           <div
-            className="absolute right-0 top-[calc(100%+8px)] z-40 min-w-[280px] border border-rule-strong bg-bg-deeper shadow-[0_20px_60px_rgba(0,0,0,0.6)] backdrop-blur-md"
+            className="absolute right-0 top-[calc(100%+8px)] z-40 min-w-[280px] border border-rule-strong bg-bg-deeper shadow-overlay backdrop-blur-md"
             role="menu"
           >
             <div className="px-5 py-4 border-b border-rule">
@@ -195,16 +195,81 @@ function ConnectorModal({
   onSelect: (id: string) => void;
   onClose: () => void;
 }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const previouslyFocused = useRef<HTMLElement | null>(null);
+
+  // Focus trap + Escape + focus return on close
+  useEffect(() => {
+    // Save current focus (the trigger button) so we can restore on close
+    previouslyFocused.current = document.activeElement as HTMLElement | null;
+
+    // Focus the first focusable element inside the modal on mount
+    const focusFirst = () => {
+      const el = containerRef.current;
+      if (!el) return;
+      const focusable = el.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      const first = focusable[0] ?? el;
+      first.focus();
+    };
+    // Microtask delay so layout is ready
+    const id = window.setTimeout(focusFirst, 0);
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.stopPropagation();
+        onClose();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const el = containerRef.current;
+      if (!el) return;
+      const focusable = Array.from(
+        el.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      );
+      if (focusable.length === 0) {
+        e.preventDefault();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (e.shiftKey) {
+        if (active === first || !el.contains(active)) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (active === last || !el.contains(active)) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", onKey, true);
+    return () => {
+      window.clearTimeout(id);
+      window.removeEventListener("keydown", onKey, true);
+      // Restore focus to trigger button on close
+      previouslyFocused.current?.focus?.();
+    };
+  }, [onClose]);
+
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-[rgba(6,9,36,0.85)] backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-bg-deeper/85 backdrop-blur-md"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="wallet-modal-title"
     >
       <div
-        className="w-full max-w-[440px] max-h-[85vh] flex flex-col border border-rule-strong bg-bg-deeper shadow-[0_30px_90px_rgba(0,0,0,0.7)]"
+        ref={containerRef}
+        className="w-full max-w-[440px] max-h-[85vh] flex flex-col border border-rule-strong bg-bg-deeper shadow-modal"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="px-6 py-5 border-b border-rule flex items-center justify-between">
@@ -230,7 +295,7 @@ function ConnectorModal({
               <button
                 key={c.id}
                 onClick={() => onSelect(c.id)}
-                className="w-full flex items-center justify-between px-4 py-4 text-left hover:bg-[rgba(0,245,255,0.04)] transition-colors duration-300 border border-transparent hover:border-rule"
+                className="w-full flex items-center justify-between px-4 py-4 text-left hover:bg-aurora/[0.04] transition-colors duration-300 border border-transparent hover:border-rule"
               >
                 <span className="text-text text-[15px]">{c.name}</span>
                 <span className="text-text-faint text-[11px] label">CONNECT</span>
@@ -264,8 +329,8 @@ function DropdownItem({
       onClick={onClick}
       className={`w-full text-left px-5 py-2.5 text-[13px] transition-colors duration-300 ${
         danger
-          ? "text-[#ff6b4a] hover:bg-[rgba(255,77,0,0.06)]"
-          : "text-text-muted hover:text-text hover:bg-[rgba(0,245,255,0.04)]"
+          ? "text-danger hover:bg-ember/[0.06]"
+          : "text-text-muted hover:text-text hover:bg-aurora/[0.04]"
       }`}
       role="menuitem"
     >
