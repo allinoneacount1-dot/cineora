@@ -25,7 +25,7 @@ type CursorState = {
   y: number;
 };
 
-const LERP_FACTOR = 0.18; // smoothing per frame for non-reduced motion
+const LERP_FACTOR = 0.4; // snappier follow — was 0.18 (felt laggy)
 const IDLE_FADE_MS = 100; // delay before showing to avoid flash on load
 
 export function CustomCursor() {

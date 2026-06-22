@@ -398,9 +398,9 @@ input:focus-visible {
   pointer-events: none;
   z-index: 9999;
   will-change: transform;
-  transition: opacity 200ms ease, background-color 300ms ease,
-    border-color 300ms ease, width 300ms cubic-bezier(0.22, 1, 0.36, 1),
-    height 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 200ms ease, background-color 200ms ease,
+    border-color 200ms ease, width 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    height 200ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .cc-outer {
   width: 28px;
@@ -423,9 +423,9 @@ input:focus-visible {
   mix-blend-mode: difference;
 }
 .cc-outer.is-hover {
-  width: 64px;
-  height: 64px;
-  margin: -32px 0 0 -32px;
+  width: 80px;
+  height: 80px;
+  margin: -40px 0 0 -40px;
   border-color: var(--accent-gold);
 }
 .cc-inner.is-hover {
