@@ -5,7 +5,7 @@ import { LogomarkC } from "@/components/icons/LogomarkC";
 
 const NAV_LINKS = [
   { label: "Civilization", href: "#civilization" },
-  { label: "Engine", href: "#engine" },
+  { label: "Thesis", href: "#thesis" },
   { label: "Token", href: "#token" },
 ];
 

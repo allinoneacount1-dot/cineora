@@ -1,0 +1,11 @@
+# 1. Introduction — From Content to Organism
+
+For most of the twentieth century, cinema was scarce. Cameras, film stock, distribution rights, and theatrical windows made every released frame the product of an enormous industrial effort. That scarcity gave cinema its gravity: a film was an event, a shared reference point, a thing audiences argued about for decades.
+
+In 2024, Runway, Pika, Sora, and a long tail of generative video models inverted that equation. A single creator with a sufficiently descriptive prompt can now produce a thirty-second cinematic sequence in minutes. The cost of production approaches zero; the cost of attention approaches infinity. This is the abundance paradox at the heart of the current creative economy: when anyone can produce everything, nothing is rare, and rare is what culture requires in order to remember.
+
+Cineora is built on the belief that the response is not to produce *less* but to give production **continuity**. A cinematic asset should be persistent across years, ownable across generations, evolvable by its community, and economically alive in a way that rewards stewardship rather than virality. In biological terms, it should behave like an organism: born once, remembered across time, adapted to its environment, and capable of producing offspring (sequels, derivatives, inherited works) without losing its identity.
+
+Three technical conditions make this possible now and not, say, five years ago. First, large language and diffusion models have crossed a quality threshold where AI-directed scene composition is defensible. Second, WebGPU and React Three Fiber have made cinematic real-time rendering practical in a browser at 60 frames per second without proprietary engines. Third, Solana's combination of sub-second finality, sub-cent fees, and programs such as Metaplex, Squads, Realms, and state compression makes persistent on-chain worlds economically feasible at population scale.
+
+Cineora treats these conditions as the minimum infrastructure for something larger than any of them alone: a protocol for living cinematic civilizations. The document that follows defines what that protocol contains, how it is governed, what risks it accepts, and what it intends to become.

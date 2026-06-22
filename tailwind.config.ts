@@ -9,45 +9,33 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: {
-          DEFAULT: "#0A0F2C",
-          elevated: "#0F1438",
-          deeper: "#060924",
-        },
+        // Aurora palette — bridged from globals.css CSS vars
+        bg: "var(--bg)",
+        "bg-elevated": "var(--bg-elevated)",
+        "bg-deeper": "var(--bg-deeper)",
         text: {
-          DEFAULT: "#F6F8FF",
-          muted: "rgba(246, 248, 255, 0.6)",
-          faint: "rgba(246, 248, 255, 0.35)",
+          DEFAULT: "var(--text)",
+          muted: "var(--text-muted)",
+          faint: "var(--text-faint)",
         },
-        aurora: "#00F5FF",
-        gold: "#FFD700",
-        ember: "#FF4D00",
-        rule: {
-          DEFAULT: "rgba(246, 248, 255, 0.08)",
-          strong: "rgba(246, 248, 255, 0.16)",
-        },
-        purple: "#9B4DFF",
+        aurora: "var(--accent-aurora)",
+        gold: "var(--accent-gold)",
+        ember: "var(--accent-ember)",
+        purple: "var(--accent-purple)",
+        teal: "var(--accent-teal, #00B4A8)",
+        rule: "var(--border)",
+        "rule-strong": "var(--border-strong)",
+      },
+      transitionTimingFunction: {
+        cineora: "cubic-bezier(0.22, 1, 0.36, 1)",
+      },
+      letterSpacing: {
+        display: "0.02em",
       },
       fontFamily: {
         display: ["var(--font-tenor)", "Georgia", "serif"],
-        body: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         mono: ["var(--font-jet)", "ui-monospace", "monospace"],
-      },
-      letterSpacing: {
-        label: "0.15em",
-        display: "0.02em",
-      },
-      fontSize: {
-        "hero": "clamp(48px, 8vw, 128px)",
-        "section": "clamp(32px, 5vw, 72px)",
-        "label": ["11px", { lineHeight: "1.4", letterSpacing: "0.15em" }],
-      },
-      maxWidth: {
-        "shell": "1280px",
-        "reading": "62ch",
-      },
-      transitionTimingFunction: {
-        "cineora": "cubic-bezier(0.22, 1, 0.36, 1)",
       },
     },
   },

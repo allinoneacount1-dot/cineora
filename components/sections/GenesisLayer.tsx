@@ -12,7 +12,7 @@ import { SectionReveal } from "@/components/ui/SectionReveal";
 export function GenesisLayer() {
   return (
     <section
-      id="civilization"
+      id="genesis"
       className="relative w-full py-[clamp(120px,18vh,200px)] overflow-hidden"
     >
       <div className="shell">

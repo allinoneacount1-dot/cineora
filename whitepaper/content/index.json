@@ -1,0 +1,110 @@
+{
+  "whitepaper": {
+    "name": "Cineora",
+    "subtitle": "The Living Cinematic Civilization Protocol",
+    "version": "1.0.0",
+    "published": "2026-06-22",
+    "sections": [
+      {
+        "slug": "abstract",
+        "filename": "01-abstract.md",
+        "title": "Abstract — The Living Cinematic Civilization",
+        "wordCount": 295,
+        "order": 1,
+        "summary": "Frames Cineora as a substrate that converts cinematic imagination into persistent, ownable, and economically alive civilizations. Introduces the four primitives (Living Scene NFTs, Agent Mesh, Seven Civilization Layers, $CINE) and restates the north star."
+      },
+      {
+        "slug": "introduction",
+        "filename": "02-introduction.md",
+        "title": "1. Introduction — From Content to Organism",
+        "wordCount": 336,
+        "order": 2,
+        "summary": "Diagnoses the abundance paradox created by generative video and argues for continuity over production volume. Identifies the three 2026-era technical conditions (LLM/diffusion quality, WebGPU, Solana maturation) that make persistent on-chain worlds feasible now."
+      },
+      {
+        "slug": "market-analysis",
+        "filename": "03-market-analysis.md",
+        "title": "2. Market Analysis",
+        "wordCount": 573,
+        "order": 3,
+        "summary": "Sizes the opportunity with cited sources: PwC Global Entertainment & Media Outlook ($2.8T → $3.4T), Goldman Sachs creator economy ($250B → $480B), Grand View Research AI in media ($14.8B → $99.5B), McKinsey GenAI ($2.6–4.4T), and Statista NFTs ($26.9B). Defines SAM and a plausible SOM of $250–750M annual protocol revenue."
+      },
+      {
+        "slug": "technology",
+        "filename": "04-technology.md",
+        "title": "3. Technology",
+        "wordCount": 605,
+        "order": 4,
+        "summary": "Specifies the stack: React Three Fiber + Three.js + WebGPU for cinematic rendering, Anchor/Rust programs (cineora-core, cineora-living-scene, cineora-royalty, cineora-legacy), Metaplex Core extensions, Squads v4, Realms, Pyth + Switchboard oracles, Helius DAS indexing, and Solana state compression for high-volume scene metadata."
+      },
+      {
+        "slug": "architecture",
+        "filename": "05-architecture.md",
+        "title": "4. Architecture — The Seven Civilization Layers",
+        "wordCount": 974,
+        "order": 5,
+        "summary": "Defines each of the seven layers — Aurora (rendered surface), Genesis (creation), Memory (continuity), Legacy (sovereignty), Cinema (distribution), Governance (coordination), Evolution (meta) — with its purpose, mechanic, and economic function. Anchors Aurora design tokens to the master-prompt color system."
+      },
+      {
+        "slug": "economics",
+        "filename": "06-economics.md",
+        "title": "5. Economics — $CINE",
+        "wordCount": 729,
+        "order": 6,
+        "summary": "Defines $CINE's fixed 1B supply, allocation table (35% treasury, 18% community, 15% team, 12% grants, 8% public, 7% liquidity, 3% advisors, 2% reserve), the 5% protocol fee split 50/50 between burn and buyback, the four-year halving emissions schedule, and sustainability targets across 10/25/50-year horizons. Adds agent and civilization economic loops."
+      },
+      {
+        "slug": "governance",
+        "filename": "07-governance.md",
+        "title": "6. Governance",
+        "wordCount": 483,
+        "order": 7,
+        "summary": "Specifies Creator DAO on Realms, per-world councils, and a 7-of-11 Squads multisig. Publishes the full proposal-threshold table (deposit, quorum, approval, timelock) by category, defines Reputation Token voting with 2% per-account cap and 10% annual decay, and constrains emergency guardian powers."
+      },
+      {
+        "slug": "security",
+        "filename": "08-security.md",
+        "title": "7. Security",
+        "wordCount": 455,
+        "order": 8,
+        "summary": "Names the three tier-1 audit firms (Trail of Bits, OtterSec, Neodyme) with their program assignments, defines the Cantina-hosted bug bounty up to $500k, details agent safety controls, and specifies a SEV-1 through SEV-4 incident response framework with 14-day public disclosure."
+      },
+      {
+        "slug": "roadmap",
+        "filename": "09-roadmap.md",
+        "title": "8. Roadmap",
+        "wordCount": 400,
+        "order": 9,
+        "summary": "Four phases with hard exit criteria: Genesis (Q3–Q4 2026, 50 worlds / 10k holders), Aurora (2027, 5k worlds / 250k MAU), Cinema (2028, 1M MAU / $25M revenue), Civilization (2029+, ten civilizations operating 36+ months under their original Legacy Constitution)."
+      },
+      {
+        "slug": "risks",
+        "filename": "10-risks.md",
+        "title": "9. Risks",
+        "wordCount": 625,
+        "order": 10,
+        "summary": "Categorizes risks honestly: regulatory (SEC Howey test, EU MiCA Article 6, OFAC screening), technical (smart contract exploits, oracle manipulation, agent hallucination, cryptographic obsolescence), market (creator-economy volatility, AI commoditization, concentration), and existential (the abundance paradox the protocol is built to address)."
+      },
+      {
+        "slug": "future-research",
+        "filename": "11-future-research.md",
+        "title": "10. Future Research",
+        "wordCount": 408,
+        "order": 11,
+        "summary": "Outlines four funded research threads: viewport-independent Cross-Reality Portals, consent-first Neural Narrative Interfaces, privacy-preserving Civilization Analytics, and Story Inheritance. Frames each as a multi-year research commitment rather than a launch promise."
+      },
+      {
+        "slug": "conclusion",
+        "filename": "12-conclusion.md",
+        "title": "11. Conclusion — The Cinematic Operating System of the Internet",
+        "wordCount": 150,
+        "order": 12,
+        "summary": "Restates the north star and the category claim: Cineora is the layer beneath production, distribution, and monetization where stories become organisms. Closes the document on the permanence thesis — not what we generate, but what we choose to keep."
+      }
+    ],
+    "totals": {
+      "sectionCount": 12,
+      "wordCount": 6033
+    }
+  }
+}
