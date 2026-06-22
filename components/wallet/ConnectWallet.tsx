@@ -7,7 +7,7 @@
  * Dropdown: Explorer link, Copy address, Switch chain, Disconnect.
  */
 
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useAccount, useConnect, useDisconnect, useBalance, useChainId } from "wagmi";
 import { mainnet, base } from "wagmi/chains";
 
