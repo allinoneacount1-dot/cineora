@@ -1,8 +1,16 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { StaggerHeadline } from "@/components/ui/StaggerHeadline";
 import { ArrowRight } from "@/components/icons/ArrowRight";
+
+// Wallet component is client-only (uses browser APIs). Dynamic import keeps SSR clean.
+const ConnectWallet = dynamic(
+  () =>
+    import("@/components/wallet/ConnectWallet").then((m) => m.ConnectWallet),
+  { ssr: false }
+);
 
 const AuroraCanvas = dynamic(
   () =>
@@ -33,8 +41,7 @@ export function Hero() {
       <div
         className="absolute inset-x-0 bottom-0 h-[260px] z-[1] pointer-events-none"
         style={{
-          background:
-            "linear-gradient(to top, rgba(6,9,36,0.9), transparent)",
+          background: "linear-gradient(to top, rgba(6,9,36,0.9), transparent)",
         }}
       />
 
@@ -58,18 +65,25 @@ export function Hero() {
             A living cinematic civilization built to outlive its creators.
           </p>
 
-          <div className="mt-12 flex items-center gap-7 flex-wrap">
-            <a href="#enter" className="btn-cineora group">
+          {/* CTAs */}
+          <div className="mt-12 flex items-center gap-5 flex-wrap">
+            <Link
+              href="/agents"
+              className="btn-cineora group"
+              aria-label="Enter the civilization"
+            >
               <span>Enter the civilization</span>
               <ArrowRight size={14} className="btn-cineora__arrow" />
-            </a>
+            </Link>
 
-            <a
-              href="#civilization"
-              className="label text-text-faint hover:text-text-muted transition-colors"
+            <ConnectWallet />
+
+            <Link
+              href="/demo"
+              className="label text-text-faint hover:text-aurora transition-colors duration-500"
             >
-              Begin reading ↓
-            </a>
+              Try the demo →
+            </Link>
           </div>
         </div>
       </div>

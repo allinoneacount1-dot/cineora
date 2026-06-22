@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Tenor_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { AppWalletProvider } from "@/components/wallet/AppWalletProvider";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,12 +29,18 @@ export const metadata: Metadata = {
   title: "CINEORA — A Living Cinematic Civilization",
   description:
     "A living cinematic civilization built to outlive its creators. Where imagination becomes ownership.",
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://cineora-mocha.vercel.app"),
   openGraph: {
     title: "CINEORA — A Living Cinematic Civilization",
     description: "Where imagination becomes ownership.",
     type: "website",
+    images: ["/icon.svg"],
   },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-icon.svg", type: "image/svg+xml" }],
+  },
+  manifest: "/manifest.webmanifest",
 };
 
 export const viewport: Viewport = {
@@ -51,7 +59,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${tenor.variable} ${jet.variable}`}
     >
-      <body className="grain vignette antialiased">{children}</body>
+      <body className="grain vignette antialiased">
+        <ScrollProgress />
+        <AppWalletProvider>{children}</AppWalletProvider>
+      </body>
     </html>
   );
 }
