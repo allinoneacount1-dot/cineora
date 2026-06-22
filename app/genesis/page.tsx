@@ -142,12 +142,6 @@ export default function GenesisPage() {
                 <span>Follow the build on GitHub</span>
                 <span aria-hidden="true">→</span>
               </a>
-              <a
-                href="mailto:hello@cineora.xyz"
-                className="label text-text-muted hover:text-aurora transition-colors"
-              >
-                Reach the council
-              </a>
             </div>
           </footer>
         </SectionReveal>

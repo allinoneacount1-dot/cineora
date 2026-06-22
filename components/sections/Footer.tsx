@@ -29,7 +29,6 @@ const COLUMNS: {
     label: "Connect",
     items: [
       { label: "GitHub", href: "https://github.com/allinoneacount1-dot/cineora", external: true },
-      { label: "Contact", href: "mailto:hello@cineora.xyz", external: true },
       { label: "Terms", href: "/terms" },
       { label: "Privacy", href: "/privacy" },
     ],
@@ -57,12 +56,6 @@ export function Footer() {
               A living cinematic civilization. Built in public. Carried
               forward by the people who step inside.
             </p>
-            <a
-              href="mailto:hello@cineora.xyz"
-              className="mt-6 inline-block label text-aurora hover:underline"
-            >
-              hello@cineora.xyz
-            </a>
           </div>
 
           {/* 3 link columns */}

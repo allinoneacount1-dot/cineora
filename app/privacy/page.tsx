@@ -103,12 +103,6 @@ export default function PrivacyPage() {
             <p>
               You can request export or deletion of any data we hold about you
               by emailing{" "}
-              <a
-                href="mailto:hello@cineora.xyz"
-                className="text-aurora hover:underline"
-              >
-                hello@cineora.xyz
-              </a>
               . We respond within 30 days.
             </p>
           </Section>

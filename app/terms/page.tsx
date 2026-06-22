@@ -98,12 +98,6 @@ export default function TermsPage() {
           <Section title="8. Contact">
             <p>
               Questions? Reach the project at{" "}
-              <a
-                href="mailto:hello@cineora.xyz"
-                className="text-aurora hover:underline"
-              >
-                hello@cineora.xyz
-              </a>
               .
             </p>
           </Section>
