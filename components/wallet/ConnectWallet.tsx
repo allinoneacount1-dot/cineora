@@ -204,7 +204,7 @@ function ConnectorModal({
       aria-labelledby="wallet-modal-title"
     >
       <div
-        className="w-full max-w-[440px] border border-rule-strong bg-bg-deeper shadow-[0_30px_90px_rgba(0,0,0,0.7)]"
+        className="w-full max-w-[440px] max-h-[85vh] flex flex-col border border-rule-strong bg-bg-deeper shadow-[0_30px_90px_rgba(0,0,0,0.7)]"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="px-6 py-5 border-b border-rule flex items-center justify-between">
@@ -220,7 +220,7 @@ function ConnectorModal({
           </button>
         </div>
 
-        <div className="p-3">
+        <div className="p-3 overflow-y-auto flex-1 min-h-0">
           {connectors.length === 0 ? (
             <div className="px-4 py-8 text-center text-text-muted text-[14px]">
               No wallet detected. Install MetaMask, Rabby, or Coinbase Wallet.

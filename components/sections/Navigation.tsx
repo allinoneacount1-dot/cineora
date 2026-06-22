@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: "Civilization", href: "/#civilization" },
   { label: "Whitepaper", href: "/whitepaper" },
   { label: "Agents", href: "/agents" },
-  { label: "Demo", href: "/demo" },
+  { label: "Showcase", href: "/demo" },
 ];
 
 export function Navigation() {
