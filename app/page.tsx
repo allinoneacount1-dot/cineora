@@ -1,5 +1,4 @@
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { Navigation } from "@/components/sections/Navigation";
 import { Hero } from "@/components/sections/Hero";
 import { Manifesto } from "@/components/sections/Manifesto";
 import { SevenLayers } from "@/components/sections/SevenLayers";
@@ -12,7 +11,6 @@ export default function Home() {
   return (
     <main className="relative">
       <SmoothScroll />
-      <Navigation />
       <Hero />
       <Manifesto />
       <SevenLayers />

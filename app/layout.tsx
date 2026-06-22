@@ -3,6 +3,7 @@ import { Inter, Tenor_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { AppWalletProvider } from "@/components/wallet/AppWalletProvider";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { Navigation } from "@/components/sections/Navigation";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -61,7 +62,10 @@ export default function RootLayout({
     >
       <body className="grain vignette antialiased">
         <ScrollProgress />
-        <AppWalletProvider>{children}</AppWalletProvider>
+        <AppWalletProvider>
+          <Navigation />
+          {children}
+        </AppWalletProvider>
       </body>
     </html>
   );
