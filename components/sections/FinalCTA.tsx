@@ -1,6 +1,7 @@
 "use client";
 
 import { SectionReveal } from "@/components/ui/SectionReveal";
+import { WaitlistForm } from "@/components/ui/WaitlistForm";
 import { ArrowRight } from "@/components/icons/ArrowRight";
 
 export function FinalCTA() {
@@ -41,7 +42,7 @@ export function FinalCTA() {
               </a>
 
               <a
-                href="#whitepaper"
+                href="/whitepaper"
                 className="label text-text-muted hover:text-text transition-colors"
               >
                 Read the genesis brief
@@ -49,8 +50,20 @@ export function FinalCTA() {
             </div>
           </SectionReveal>
 
-          <SectionReveal delay={420}>
-            <p className="mt-16 label text-text-faint">
+          <SectionReveal delay={380}>
+            <div className="mt-16 hairline" />
+            <p className="mt-8 label text-aurora mb-3">
+              Or, wait for the next dispatch
+            </p>
+            <p className="text-text-muted text-[14px] leading-[1.7] max-w-[44ch] mb-2">
+              The civilization grows in chapters. Leave an address and you&apos;ll
+              hear when the next one opens.
+            </p>
+            <WaitlistForm />
+          </SectionReveal>
+
+          <SectionReveal delay={520}>
+            <p className="mt-20 label text-text-faint">
               CINEORA · Genesis · Phase 0 Prototype
             </p>
           </SectionReveal>

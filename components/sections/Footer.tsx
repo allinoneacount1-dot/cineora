@@ -1,19 +1,38 @@
 "use client";
 
+import Link from "next/link";
 import { LogomarkC } from "@/components/icons/LogomarkC";
 
-const COLUMNS = [
+const COLUMNS: {
+  label: string;
+  items: { label: string; href: string; external?: boolean }[];
+}[] = [
   {
     label: "Civilization",
-    items: ["Aurora", "Genesis", "Memory", "Legacy"],
+    items: [
+      { label: "Aurora", href: "/#civilization" },
+      { label: "Genesis", href: "/#genesis" },
+      { label: "Memory", href: "/#memory" },
+      { label: "Legacy", href: "/#legacy" },
+    ],
   },
   {
-    label: "Engine",
-    items: ["Living Cinema", "World Builder", "Character Genesis"],
+    label: "Protocol",
+    items: [
+      { label: "Whitepaper", href: "/whitepaper" },
+      { label: "Agents", href: "/agents" },
+      { label: "Showcase", href: "/demo" },
+      { label: "Genesis Council", href: "/genesis" },
+    ],
   },
   {
     label: "Connect",
-    items: ["X", "Discord", "GitHub", "Whitepaper"],
+    items: [
+      { label: "GitHub", href: "https://github.com/allinoneacount1-dot/cineora", external: true },
+      { label: "Contact", href: "mailto:hello@cineora.xyz", external: true },
+      { label: "Terms", href: "/terms" },
+      { label: "Privacy", href: "/privacy" },
+    ],
   },
 ];
 
@@ -24,16 +43,26 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           {/* Brand block */}
           <div className="md:col-span-5">
-            <div className="flex items-center gap-2.5">
+            <Link
+              href="/"
+              className="flex items-center gap-2.5 group"
+              aria-label="Cineora home"
+            >
               <LogomarkC size={22} />
               <span className="font-display text-[18px] tracking-display text-text">
                 Cineora
               </span>
-            </div>
+            </Link>
             <p className="mt-5 text-text-muted text-[15px] leading-[1.65] max-w-[36ch] font-light">
               A living cinematic civilization. Built in public. Carried
               forward by the people who step inside.
             </p>
+            <a
+              href="mailto:hello@cineora.xyz"
+              className="mt-6 inline-block label text-aurora hover:underline"
+            >
+              hello@cineora.xyz
+            </a>
           </div>
 
           {/* 3 link columns */}
@@ -42,13 +71,30 @@ export function Footer() {
               <div className="label text-text-faint mb-5">{col.label}</div>
               <ul className="space-y-3.5">
                 {col.items.map((item) => (
-                  <li key={item}>
-                    <a
-                      href="#"
-                      className="text-text text-[14px] font-light hover:text-aurora transition-colors duration-500"
-                    >
-                      {item}
-                    </a>
+                  <li key={item.label}>
+                    {item.external ? (
+                      <a
+                        href={item.href}
+                        target={
+                          item.href.startsWith("http") ? "_blank" : undefined
+                        }
+                        rel={
+                          item.href.startsWith("http")
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                        className="text-text text-[14px] font-light hover:text-aurora transition-colors duration-500"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="text-text text-[14px] font-light hover:text-aurora transition-colors duration-500"
+                      >
+                        {item.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

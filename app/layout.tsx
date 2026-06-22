@@ -61,6 +61,9 @@ export default function RootLayout({
       className={`${inter.variable} ${tenor.variable} ${jet.variable}`}
     >
       <body className="grain vignette antialiased">
+        <a href="#main" className="skip-link">
+          Skip to main content
+        </a>
         <ScrollProgress />
         <AppWalletProvider>
           <Navigation />
